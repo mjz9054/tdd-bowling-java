@@ -5,18 +5,33 @@ import java.util.List;
 
 public class BowlingScoreCalculator {
 
+  private static final int ROUND_NUMBER = 10;
+  private static final int NUMBER_OF_BOTTLES = 10;
+
   public static int calculateTotalScore(List<Integer> knockdownBottlesNumberList) {
 
     List<Integer> extraList = new ArrayList<>();
-    for (int i = 0; i < knockdownBottlesNumberList.size() - 1; i++) {
+    int round = 0;
+    for (int i = 0; i < knockdownBottlesNumberList.size() - 1 && round <= ROUND_NUMBER; i++) {
       Integer knockdownBottlesNumber = knockdownBottlesNumberList.get(i);
-      Integer nextKnockdownBottlesNumber = knockdownBottlesNumberList.get(i + 1);
 
-      if (knockdownBottlesNumber + nextKnockdownBottlesNumber == 10) {
+      if (knockdownBottlesNumber == NUMBER_OF_BOTTLES) {
+        extraList.add(knockdownBottlesNumberList.get(i + 1));
         extraList.add(knockdownBottlesNumberList.get(i + 2));
         i++;
+        round++;
+        continue;
+      }
+
+      Integer nextKnockdownBottlesNumber = knockdownBottlesNumberList.get(i + 1);
+
+      if (knockdownBottlesNumber + nextKnockdownBottlesNumber == NUMBER_OF_BOTTLES) {
+        extraList.add(knockdownBottlesNumberList.get(i + 2));
+        i++;
+        round++;
       }
     }
+
     extraList.addAll(knockdownBottlesNumberList);
     return extraList.stream().mapToInt(Integer::intValue).sum();
   }
