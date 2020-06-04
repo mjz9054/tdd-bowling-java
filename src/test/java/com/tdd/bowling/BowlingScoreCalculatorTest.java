@@ -12,14 +12,29 @@ public class BowlingScoreCalculatorTest {
   public void should_get_score_equal_total_knockdown_bottles_when_calculate_total_score_given_no_spare_no_strike_knockdown_bottles_number_list() {
 
     // GIVEN
-    List<Integer> knockdownBottlesNumberList = asList(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
-        1, 1, 1, 1);
+    List<Integer> knockdownBottlesNumberList = asList(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+        1, 1, 1, 1, 1);
 
     // WHEN
     int totalScore = BowlingScoreCalculator.calculateTotalScore(knockdownBottlesNumberList);
 
     // THEN
     int expectedScore = 20;
+    assertEquals(expectedScore, totalScore);
+  }
+
+  @Test
+  public void should_get_score_equal_total_knockdown_bottles_plus_followed_one_knockdown_after_each_spare_when_calculate_total_score_given_at_least_one_spare_no_strike_knockdown_bottles_number_list() {
+
+    // GIVEN
+    List<Integer> knockdownBottlesNumberList = asList(1, 1, 1, 9, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+        1, 1, 1, 1, 1);
+
+    // WHEN
+    int totalScore = BowlingScoreCalculator.calculateTotalScore(knockdownBottlesNumberList);
+
+    // THEN
+    int expectedScore = 29;
     assertEquals(expectedScore, totalScore);
   }
 }
