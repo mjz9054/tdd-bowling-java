@@ -84,4 +84,19 @@ public class BowlingScoreCalculatorTest {
     int expectedScore = 300;
     assertEquals(expectedScore, totalScore);
   }
+
+  @Test
+  public void should_get_score_equal_total_knockdown_plus_followed_one_knockdown_after_each_spare_when_calculate_total_score_given_all_spare_knockdown_bottles_number_list() {
+
+    // GIVEN
+    List<Integer> knockdownBottlesNumberList = asList(1, 9, 2, 8, 3, 7, 4, 6, 5, 5, 9, 1, 8, 2, 7,
+        3, 6, 4, 5, 5, 5);
+
+    // WHEN
+    int totalScore = BowlingScoreCalculator.calculateTotalScore(knockdownBottlesNumberList);
+
+    // THEN
+    int expectedScore = 154;
+    assertEquals(expectedScore, totalScore);
+  }
 }

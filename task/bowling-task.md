@@ -20,3 +20,7 @@
     - `Given` a list of knockdown bottles with all STRIKE
     - `when` calculate total score 
     - `then` score equals total knockdown bottles plus the following two knockdown bottles after each STRIKE
+- With all SPARE
+    - `Given` a list of knockdown bottles with all SPARE
+    - `when` calculate total score 
+    - `then` score equals total knockdown bottles plus the following one knockdown bottles after each SPARE
