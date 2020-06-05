@@ -71,7 +71,7 @@ public class BowlingScoreCalculatorTest {
   }
 
   @Test
-  public void should_get_score_equal_total_knockdown_les_plus_followed_one_knockdown_after_each_spare_plus_followed_two_knockdown_after_each_spike_when_calculate_total_score_given_at_least_one_spare_at_least_one_strike_knockdown_bottles_number_list() {
+  public void should_get_score_equal_total_knockdown_plus_followed_two_knockdown_after_each_spike_when_calculate_total_score_given_all_strike_knockdown_bottles_number_list() {
 
     // GIVEN
     List<Integer> knockdownBottlesNumberList = asList(10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10,
