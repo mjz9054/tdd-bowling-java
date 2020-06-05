@@ -9,7 +9,6 @@ public class BowlingScoreCalculator {
   private static final int NUMBER_OF_BOTTLES = 10;
 
   public static int calculateTotalScore(List<Integer> knockdownBottlesNumberList) {
-
     List<Integer> extraList = new ArrayList<>();
     int round = 1;
     for (int i = 0; i < knockdownBottlesNumberList.size() - 1 && round <= ROUND_NUMBER - 1; ) {
